@@ -113,7 +113,8 @@ def main():
                 correct_count = 0
                 technique_traces = []
                 
-                for i, problem in enumerate(tqdm(selected_problems, desc=f"{technique_name} - {model}", leave=False)):
+                progress_bar = tqdm(selected_problems, desc=f"{technique_name} - {model}", leave=False)
+                for i, problem in enumerate(progress_bar):
                     is_correct, traces = evaluate_technique(technique, model, problem)
                     if is_correct:
                         correct_count += 1
@@ -123,7 +124,7 @@ def main():
                         "is_correct": is_correct
                     })
                     accuracy_so_far = correct_count / (i + 1)
-                    tqdm.write(f"Progress: {i+1}/{len(selected_problems)} | Correct: {correct_count} | Accuracy: {accuracy_so_far:.2%}")
+                    progress_bar.set_description(f"{technique_name} - {model} | Progress: {i+1}/{len(selected_problems)} | Correct: {correct_count} | Accuracy: {accuracy_so_far:.2%}")
                     time.sleep(1)  # Add a small delay to avoid rate limiting
                 
                 # Save traces for this technique and model
