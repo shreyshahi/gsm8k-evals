@@ -1,0 +1,132 @@
+[
+  {
+    "problem": {
+      "question": "A small pizza can gives 4 slices, and a large pizza gives 8 slices.  George purchased 3 small and 2 large pizzas.  George would like to eat 3 pieces.  His friend Bob would like to eat one more piece than George.  Susie will eat half as many as Bob.  Bill, Fred and Mark would each like 3 pieces.  How many slices of pizza will be left over?",
+      "answer": "George has 3 small pizzas * 4 slices = <<3*4=12>>12 pieces.\nGeorge also has 2 large pizzas * 8 slices = <<2*8=16>>16 slices.\nTotal, George has 12 + 16 slices = <<12+16=28>>28 slices of pizza.\nBob will eat 3 slices + 1 = <<3+1=4>>4 slices.\nSusie will eat 1/2 * 4 slices = <<1/2*4=2>>2 slices.\nBob, Fred and Mark will eat in total 3 + 3 + 3 = <<3+3+3=9>>9 pieces.\nTotal slices of pizza eaten will be 3 + 4 + 2 + 9 = <<3+4+2+9=18>>18 pieces.\nTotal pizza slices remaining will be 28 pieces - 18 = <<28-18=10>>10 slices left.\n#### 10"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        A small pizza can gives 4 slices, and a large pizza gives 8 slices.  George purchased 3 small and 2 large pizzas.  George would like to eat 3 pieces.  His friend Bob would like to eat one more piece than George.  Susie will eat half as many as Bob.  Bill, Fred and Mark would each like 3 pieces.  How many slices of pizza will be left over?\n\n        Only output the answer and nothing else\n        ",
+        "response": "4"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "Laura wants to bake a cake for her mother. She checks the recipe and the pantry and sees that she needs to buy 2 cups of flour, 2 cups of sugar, a cup of butter, and two eggs. The flour costs $4. The sugar costs $2. The eggs cost $.5, and the butter costs $2.5. When she is done baking it, she cuts the cake into 6 slices. Her mother enjoys a piece the first two days. But on the third day, they discover that Kevin, her dog, ate the rest of the cake. How much did the amount the dog ate cost?",
+      "answer": "The cake cost $9 in total because 4 + 2 + .5 + 2.5 = <<4+2+.5+2.5=9>>9\nEach slice costs $1.5 because 9 / 6 = <<9/6=1.5>>1.5\nThe dog ate 4 slices because 6 - 2 = <<6-2=4>>4\nThe amount the dog ate cost $6 because 4 x 1.5 = <<4*1.5=6>>6\n#### 6"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Laura wants to bake a cake for her mother. She checks the recipe and the pantry and sees that she needs to buy 2 cups of flour, 2 cups of sugar, a cup of butter, and two eggs. The flour costs $4. The sugar costs $2. The eggs cost $.5, and the butter costs $2.5. When she is done baking it, she cuts the cake into 6 slices. Her mother enjoys a piece the first two days. But on the third day, they discover that Kevin, her dog, ate the rest of the cake. How much did the amount the dog ate cost?\n\n        Only output the answer and nothing else\n        ",
+        "response": "$8.25"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "A Statistics student wants to find out the average daily allowance of the middle school students. According to his survey, 2/3 of the students receive an average of $6 allowance per day while the rest gets an average of $4 a day. If he surveyed 60 students, what is the total amount of money those 60 students get in a day?",
+      "answer": "There are 60 students x 2/3 = <<60*2/3=40>>40 students who have a $6 daily allowance.\nWhile there are 60 students - 40 students = <<60-40=20>>20 students who have a $4 daily allowance.\nThe sum of the allowances of the 40 students who received $6 daily is 40 students x $6/day = $<<40*6=240>>240.\nThe sum of the allowances of the 20 students who received $4 daily is 20 students x $4/day = $<<20*4=80>>80.\nThe total daily amount of money of those 60 students is $240 + $80 = $<<240+80=320>>320.\n#### 320"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        A Statistics student wants to find out the average daily allowance of the middle school students. According to his survey, 2/3 of the students receive an average of $6 allowance per day while the rest gets an average of $4 a day. If he surveyed 60 students, what is the total amount of money those 60 students get in a day?\n\n        Only output the answer and nothing else\n        ",
+        "response": "$320"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "A classroom of 15 students turned in essays on Friday morning. The first 5 students each turned in essays with 2 pages. The next 5 students each turned in essays with 3 pages. The last 5 students each turned in essays with 1 page. What is the average page count per essay for the 15 students?",
+      "answer": "The first 5 students turned in a total of 2 * 5 = <<2*5=10>>10 pages.\nThe next 5 students turned in a total of 3 * 5 = <<3*5=15>>15 pages.\nThe last 5 students turned in a total of 1 * 5 = <<1*5=5>>5 pages.\nIn total there are 30 pages turned in by the students.\nFor the 15 students, the average page count per essay is 30/15 = <<30/15=2>>2 pages.\n#### 2"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        A classroom of 15 students turned in essays on Friday morning. The first 5 students each turned in essays with 2 pages. The next 5 students each turned in essays with 3 pages. The last 5 students each turned in essays with 1 page. What is the average page count per essay for the 15 students?\n\n        Only output the answer and nothing else\n        ",
+        "response": "2 pages per essay"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Matt spends 80 minutes washing the outside of his car and 1/4 that amount of time cleaning the inside. How long does he spend cleaning his car total?",
+      "answer": "First find the time Matt spends cleaning the inside of his car: 80 minutes / 4 = <<80/4=20>>20 minutes\nThen add that time to the time he spends cleaning the outside to find his total cleaning time: 20 minutes + 80 minutes = <<20+80=100>>100 minutes\n#### 100"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Matt spends 80 minutes washing the outside of his car and 1/4 that amount of time cleaning the inside. How long does he spend cleaning his car total?\n\n        Only output the answer and nothing else\n        ",
+        "response": "100 minutes"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Tobias went to a swimming pool for 3 hours. Swimming every 100 meters took him 5 minutes, but every 25 minutes he had to take a 5-minute pause. How many meters did Tobias swim during his visit to the swimming pool?",
+      "answer": "We need to count the sequences that Tobias made, which consist of 25 minutes of swimming and a 5-minute pause, so one sequence lasts for 25 minutes + 5 minutes = <<25+5=30>>30 minutes/sequence.\nThree hours is 3 hours * 60 minutes/hour = 180 minutes, so he is able to make 180 minutes / 30 minutes/sequence = <<180/30=6>>6 sequences.\nTherefore Tobias needs to make 6 pauses within these 6 sequences, which will last for 6 pauses * 5 minutes/pause = <<6*5=30>>30 minutes.\nDuring three hours, he is going to swim for 180 minutes - 30 minutes = <<180-30=150>>150 minutes.\nTherefore Tobias can make 100 meters for 150 minutes / 5 minutes/100 meters = 3 times.\nSo he was able to swim 30 times * 100 meters/time = <<30*100=3000>>3000 meters in total.\n#### 3000"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Tobias went to a swimming pool for 3 hours. Swimming every 100 meters took him 5 minutes, but every 25 minutes he had to take a 5-minute pause. How many meters did Tobias swim during his visit to the swimming pool?\n\n        Only output the answer and nothing else\n        ",
+        "response": "2700 meters"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "Emerson and his friends love rowing and don't miss the sport on weekends. Starting in the morning, Emerson rowed and was 6 miles away from his starting point on a particular weekend. He continued for another 15 miles at a constant speed, only stopping for a while for rest before covering the remaining 18 miles. What's the total distance covered by Emerson on his trip?",
+      "answer": "After the first 6 miles, he rowed 15 miles more, reaching 6+15 = <<6+15=21>>21 miles.\nAfter resting, he adds 18 miles more, which is 18+21 = <<18+21=39>>39 miles\n#### 39"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Emerson and his friends love rowing and don't miss the sport on weekends. Starting in the morning, Emerson rowed and was 6 miles away from his starting point on a particular weekend. He continued for another 15 miles at a constant speed, only stopping for a while for rest before covering the remaining 18 miles. What's the total distance covered by Emerson on his trip?\n\n        Only output the answer and nothing else\n        ",
+        "response": "39 miles"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Bill the miner discovers a vein of fool's gold. He successfully sells 8 ounces to a merchant, but when he tries to sell to the sheriff he's arrested, fined $50 and run out of town on a rail. If Bill earned $9 for every ounce of fool's gold he sold, how much money is he left with?",
+      "answer": "First find the total amount of money Bill made from the merchant: 8 ounces * $9/ounce = $<<8*9=72>>72\nThen subtract the fine to find how much money he was left with: $72 - $50 = $<<72-50=22>>22\n#### 22"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Bill the miner discovers a vein of fool's gold. He successfully sells 8 ounces to a merchant, but when he tries to sell to the sheriff he's arrested, fined $50 and run out of town on a rail. If Bill earned $9 for every ounce of fool's gold he sold, how much money is he left with?\n\n        Only output the answer and nothing else\n        ",
+        "response": "$72"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "A bottle can hold 2 cups of water. How many cups of water are needed to fill up 10 whole bottles and 5 half-capacity bottles?",
+      "answer": "For 10 whole bottles, you will need 10*2=<<10*2=20>>20 cups of water.\nWith 5 half-capacity bottles, it requires 5*1=<<5*1=5>>5 cups of water.\nIn total, you need to have 25+5=<<25+5=30>>30 cups of water to fill them all.\n#### 30"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        A bottle can hold 2 cups of water. How many cups of water are needed to fill up 10 whole bottles and 5 half-capacity bottles?\n\n        Only output the answer and nothing else\n        ",
+        "response": "25 cups"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "Marcus, Humphrey, and Darrel are bird watching. Marcus sees 7 birds, Humphrey sees 11 birds, and Darrel sees 9 birds. How many birds does each of them see on average?",
+      "answer": "They see 27 total birds because 9 +11 + 7 = <<9+11+7=27>>27\nThey see an average of 9 birds each because 27 / 3 = <<27/3=9>>9\n#### 9"
+    },
+    "traces": [
+      {
+        "prompt": "\n        Provide a direct and concise answer to the following question:\n        \n        Marcus, Humphrey, and Darrel are bird watching. Marcus sees 7 birds, Humphrey sees 11 birds, and Darrel sees 9 birds. How many birds does each of them see on average?\n\n        Only output the answer and nothing else\n        ",
+        "response": "9 birds"
+      }
+    ],
+    "is_correct": true
+  }
+]

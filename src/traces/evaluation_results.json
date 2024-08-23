@@ -1,0 +1,11 @@
+{
+  "BaseTechnique": {
+    "accuracy": 0.9
+  },
+  "BaseWithBreaksTechnique": {
+    "accuracy": 0.9
+  },
+  "StraightToAnswer": {
+    "accuracy": 0.5
+  }
+}
