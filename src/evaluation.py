@@ -1,6 +1,6 @@
 import random
 from datasets import load_dataset
-from techniques.base import BaseTechnique, StraightToAnswer
+from techniques.base import BaseTechnique, StraightToAnswer, DoubleCheckTechnique
 import openai
 import os
 import json
@@ -90,7 +90,8 @@ def main():
     # Initialize the techniques
     techniques = [
         ("BaseTechnique", BaseTechnique()),
-        ("StraightToAnswer", StraightToAnswer())
+        ("StraightToAnswer", StraightToAnswer()),
+        ("DoubleCheck", DoubleCheckTechnique()),
     ]
 
     # Initialize the models
