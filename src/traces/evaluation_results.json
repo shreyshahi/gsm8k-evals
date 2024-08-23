@@ -1,11 +1,20 @@
 {
-  "BaseTechnique": {
+  "BaseTechnique_gpt-4o": {
     "accuracy": 0.9
   },
-  "BaseWithBreaksTechnique": {
+  "BaseWithBreaksTechnique_gpt-4o": {
+    "accuracy": 0.8
+  },
+  "StraightToAnswer_gpt-4o": {
+    "accuracy": 0.4
+  },
+  "BaseTechnique_gpt-4o-mini": {
     "accuracy": 0.9
   },
-  "StraightToAnswer": {
-    "accuracy": 0.5
+  "BaseWithBreaksTechnique_gpt-4o-mini": {
+    "accuracy": 0.9
+  },
+  "StraightToAnswer_gpt-4o-mini": {
+    "accuracy": 0.3
   }
 }

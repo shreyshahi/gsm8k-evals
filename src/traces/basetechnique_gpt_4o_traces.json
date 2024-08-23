@@ -1,0 +1,132 @@
+[
+  {
+    "problem": {
+      "question": "Vermont opened up 4 web pages on his web browser and found 12 ads on the first web page and twice as many ads on the second web page as the first web page. When he opened the third web page, he found 24 more ads than the number of ads on the second web page. If the fourth web page had 3/4 times as many ads as the second web page, calculate the total number of ads Vermont clicked on if he clicked on 2/3 of them.",
+      "answer": "If Vermont found 12 ads on the first web page and twice as many ads on the second web page as the first web page, he found 12*2 = <<12*2=24>>24 ads on the second web page.\nThe first and the second web page had a total of 12+24 =<<12+24=36>>36\nVermont also found 24 more ads on the third web page than the second web page, a total of 24+24 = <<24+24=48>>48 ads.\nThe first three web pages had 48+36 = <<48+36=84>>84 ads\nThe fourth web page had 3/4 times as many ads as the second web page, a total of 3/4*24 =<<3/4*24=18>>18 ads\nIn all the web pages Vermont opened, he found 84+18 = <<84+18=102>>102 ads\nIf he clicked on 2/3 of them, he clicked on 2/3*102=<<2/3*102=68>>68 ads.\n#### 68"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Vermont opened up 4 web pages on his web browser and found 12 ads on the first web page and twice as many ads on the second web page as the first web page. When he opened the third web page, he found 24 more ads than the number of ads on the second web page. If the fourth web page had 3/4 times as many ads as the second web page, calculate the total number of ads Vermont clicked on if he clicked on 2/3 of them.",
+        "response": "To determine the total number of ads Vermont clicked on, we first need to find the number of ads on each of the four web pages and then calculate how many ads he clicked.\n\n1. The number of ads on the first web page:\n\\[ a_1 = 12 \\]\n\n2. The number of ads on the second web page is twice the number on the first web page:\n\\[ a_2 = 2 \\times 12 = 24 \\]\n\n3. The number of ads on the third web page is 24 more than the number on the second web page:\n\\[ a_3 = 24 + 24 = 48 \\]\n\n4. The number of ads on the fourth web page is \\( \\frac{3}{4} \\) times the number on the second web page:\n\\[ a_4 = \\frac{3}{4} \\times 24 = 18 \\]\n\nNext, calculate the total number of ads across all four web pages:\n\\[\n\\text{Total ads} = a_1 + a_2 + a_3 + a_4 = 12 + 24 + 48 + 18 = 102\n\\]\n\nVermont clicked on \\( \\frac{2}{3} \\) of these ads, so we need to find \\( \\frac{2}{3} \\) of the total number of ads:\n\\[\n\\text{Number of ads clicked} = \\frac{2}{3} \\times 102 = \\frac{204}{3} = 68\n\\]\n\nTherefore, Vermont clicked on \\(\\boxed{68}\\) ads."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Paul, Amoura, and Ingrid were to go to a friend's party planned to start at 8:00 a.m. Paul arrived at 8:25. Amoura arrived 30 minutes later than Paul, and Ingrid was three times later than Amoura. How late, in minutes, was Ingrid to the party?",
+      "answer": "If the party was planned to start at 8:00 am, Paul was 8:25-8:00 = <<825-800=25>>25 minutes late.\nIf Paul was 25 minutes late, Amoura was 25+30 = <<25+30=55>>55 minutes late.\nIf Ingrid was three times late than Amoura was, she was 3*55 = <<3*55=165>>165 minutes late\n#### 165"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Paul, Amoura, and Ingrid were to go to a friend's party planned to start at 8:00 a.m. Paul arrived at 8:25. Amoura arrived 30 minutes later than Paul, and Ingrid was three times later than Amoura. How late, in minutes, was Ingrid to the party?",
+        "response": "We need to determine how late Ingrid was to the party, which was planned to start at 8:00 a.m.\n\nFirst, let's find out when Paul arrived:\n- Paul arrived at 8:25 a.m.\n- Therefore, Paul was 25 minutes late.\n\nNext, let's figure out Amoura's arrival time:\n- Amoura arrived 30 minutes later than Paul.\n- If Paul arrived at 8:25 a.m., adding 30 minutes to this time gives us 8:55 a.m.\n- The party started at 8:00 a.m., so Amoura was \\( 55 \\) minutes late.\n\nNow, let's calculate Ingrid's arrival time:\n- Ingrid was three times later than Amoura.\n- Amoura was 55 minutes late, so Ingrid would be \\( 3 \\times 55 = 165 \\) minutes late.\n\nThus, Ingrid was \\( 165 \\) minutes late to the party."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Tim and Donna will celebrate their 20th wedding anniversary in 2025.  They started dating 3 years before they got married and met 2 years before that.  When did they meet?",
+      "answer": "They'll celebrate their 20th wedding anniversary in 2025 which means they got married in 2025-20 = <<2025-20=2005>>2005\nThey started dating 3 years before they got married in 2005 which means they started dating in 2005-3 = 2002\nAnd they met 2 years before they started dating which means they met in 2002-2 = 2000\n#### 2000"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Tim and Donna will celebrate their 20th wedding anniversary in 2025.  They started dating 3 years before they got married and met 2 years before that.  When did they meet?",
+        "response": "To determine when Tim and Donna met, we need to work backward from their 20th wedding anniversary in 2025. Here is the step-by-step calculation:\n\n1. Calculate the year they got married:\n   \\[\n   2025 - 20 = 2005\n   \\]\n   So, they got married in 2005.\n\n2. Calculate the year they started dating, which is 3 years before they got married:\n   \\[\n   2005 - 3 = 2002\n   \\]\n   They started dating in 2002.\n\n3. Calculate the year they met, which is 2 years before they started dating:\n   \\[\n   2002 - 2 = 2000\n   \\]\n   Therefore, Tim and Donna met in the year 2000."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Bobby buys two packets of candy. He eats two candies every day from Monday through Friday and takes one each during the remaining days of the week. If it takes him 3 such weeks to finish the 2 packets, how many candies are in a packet?",
+      "answer": "He eats 2 each from Monday through Friday for a total of 2*5 = <<2*5=10>>10 candies\nHe eats 1 each every other day of the week (Saturday and Sunday) for a total of 1*2 = <<1*2=2>>2 candies\nIn a week, he consumes a total of 10+2 = <<10+2=12>>12 candies\nDoing this for 3 weeks, he will consume 3*12 = <<3*12=36>>36 candies\nIf 2 packets contain 36 candies, then 1 contains 36/2 = 18 candies\n#### 18"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Bobby buys two packets of candy. He eats two candies every day from Monday through Friday and takes one each during the remaining days of the week. If it takes him 3 such weeks to finish the 2 packets, how many candies are in a packet?",
+        "response": "To determine the number of candies in a packet, let's start by calculating the total number of candies Bobby eats in one week. \n\nFrom Monday through Friday, he eats 2 candies each day:\n\\[ 2 \\text{ candies/day} \\times 5 \\text{ days} = 10 \\text{ candies} \\]\n\nDuring Saturday and Sunday, he eats 1 candy each day:\n\\[ 1 \\text{ candy/day} \\times 2 \\text{ days} = 2 \\text{ candies} \\]\n\nSo, the total number of candies Bobby eats in one week is:\n\\[ 10 \\text{ candies} + 2 \\text{ candies} = 12 \\text{ candies} \\]\n\nIf it takes him 3 weeks to finish the candies, the total number of candies he eats in 3 weeks is:\n\\[ 12 \\text{ candies/week} \\times 3 \\text{ weeks} = 36 \\text{ candies} \\]\n\nSince he finishes 2 packets of candy in those 3 weeks, we can find the number of candies per packet by dividing the total candies by the number of packets:\n\\[ \\frac{36 \\text{ candies}}{2 \\text{ packets}} = 18 \\text{ candies/packet} \\]\n\nTherefore, each packet contains:\n\\[ 18 \\text{ candies} \\]"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Mary had 89 stickers.  She used 3 large stickers on the front page of her journal and 7 stickers each to 6 other pages of her journal. How many stickers does Mary have remaining?",
+      "answer": "Mary added a total of 7 stickers/page * 6 pages= <<7*6=42>>42 stickers to the 6 other pages.\nIn total, Mary added 3 large stickers + 42 stickers = <<3+42=45>>45 stickers to her journal.\nSince she started with 89 stickers, she now has 89 - 45 = <<89-45=44>>44 stickers left.\n#### 44"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Mary had 89 stickers.  She used 3 large stickers on the front page of her journal and 7 stickers each to 6 other pages of her journal. How many stickers does Mary have remaining?",
+        "response": "To solve this problem, we need to determine how many stickers Mary used in total and then subtract that number from her initial total of stickers.\n\nFirstly, let's calculate the total number of stickers Mary used on the 6 other pages of her journal. She used 7 stickers per page for 6 pages:\n\\[\n7 \\text{ stickers/page} \\times 6 \\text{ pages} = 42 \\text{ stickers}\n\\]\n\nNext, we add the stickers she used on the front page to the stickers she used on the other pages:\n\\[\n3 \\text{ stickers} + 42 \\text{ stickers} = 45 \\text{ stickers}\n\\]\n\nNow, we subtract this total from her initial number of stickers to find out how many stickers she has remaining:\n\\[\n89 \\text{ stickers} - 45 \\text{ stickers} = 44 \\text{ stickers}\n\\]\n\nTherefore, Mary has **44 stickers** remaining."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Grant spends $200.00 a year to have the newspaper delivered daily to his house.  Juanita buys the newspaper daily.  Monday through Saturday, she spends $0.50 and on Sunday she spends $2.00.  How much more money does Juanita spend buying the newspaper yearly than Grant?",
+      "answer": "Monday through Saturday Juanita buys the paper for $0.50 so that's 6*$0.50 = $<<6*0.5=3.00>>3.00\nShe spends $2.00 for Sunday and $3.00 for the other 6 days so she spends $2 + $3 = $<<2+3=5.00>>5.00 for the newspaper weekly\nOver 52 weeks she spends 52*$5 = $<<52*5=260.00>>260.00\nJuanita spends $260.00 on the newspaper for the year and Grants spends $200.00 a year so Juanita spends $260-$200 = $<<260-200=60.00>>60.00 more\n#### 60"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Grant spends $200.00 a year to have the newspaper delivered daily to his house.  Juanita buys the newspaper daily.  Monday through Saturday, she spends $0.50 and on Sunday she spends $2.00.  How much more money does Juanita spend buying the newspaper yearly than Grant?",
+        "response": "First, let's calculate how much Juanita spends on newspapers in a year. To do this, we need to determine her weekly and then yearly spending.\n\n### Juanita's Weekly Spending\n- From Monday through Saturday, Juanita buys the newspaper every day. She spends $0.50 per day.\n    \\[\n    0.50 \\text{ dollars/day} \\times 6 \\text{ days} = 3.00 \\text{ dollars/week}\n    \\]\n\n- On Sunday, she spends $2.00 on the newspaper.\n    \\[\n    \\text{Total for Sunday} = 2.00 \\text{ dollars/week}\n    \\]\n\n- Therefore, her total weekly spending is:\n    \\[\n    3.00 \\text{ dollars (Mon-Sat)} + 2.00 \\text{ dollars (Sun)} = 5.00 \\text{ dollars/week}\n    \\]\n\n### Juanita's Yearly Spending\n- There are 52 weeks in a year. So, her yearly spending is:\n    \\[\n    5.00 \\text{ dollars/week} \\times 52 \\text{ weeks} = 260.00 \\text{ dollars/year}\n    \\]\n\n### Comparing with Grant's Spending\n- Grant spends $200.00 a year on newspaper delivery.\n- Juanita spends $260.00 a year buying the newspaper daily.\n\n### The Difference in Spending\n- To find how much more Juanita spends than Grant, subtract Grant's yearly spending from Juanita's yearly spending:\n    \\[\n    260.00 \\text{ dollars/year} - 200.00 \\text{ dollars/year} = 60.00 \\text{ dollars/year}\n    \\]\n\nThus, Juanita spends $60.00 more per year on newspapers than Grant.\n\n\\[\n\\boxed{60.00}\n\\]"
+      }
+    ],
+    "is_correct": false
+  },
+  {
+    "problem": {
+      "question": "The region east of plain A is 50 square miles less than the region east of plain B. If plain B has 200 square miles, how many square miles do the plains have in total?",
+      "answer": "The region of plain A has a total of 200 - 50 = <<200-50=150>>150 square miles.\nThe total number of square miles for both plains is 150 square miles for plain A + 200 square miles for plain B = <<150+200=350>>350 square miles\n#### 350"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: The region east of plain A is 50 square miles less than the region east of plain B. If plain B has 200 square miles, how many square miles do the plains have in total?",
+        "response": "To solve the problem, we need to determine the total number of square miles of plains A and B.\n\nGiven:\n- The region east of plain A is 50 square miles less than the region east of plain B.\n- Plain B has 200 square miles.\n\nLet:\n- \\(A\\) be the number of square miles of plain A.\n- \\(B\\) be the number of square miles of plain B (\\(B = 200\\)).\n\nFrom the problem, the region east of plain A is 50 square miles less than the region east of plain B. This can be written as:\n\\[ \\text{East of plain A} = \\text{East of plain B} - 50. \\]\n\nSince plain B is 200 square miles, the area east of plain B can be referred to as \\(B\\):\n\\[ \\text{East of plain B} = 200. \\]\n\nThus, the equation becomes:\n\\[ \\text{East of plain A} = 200 - 50. \\]\n\\[ \\text{East of plain A} = 150. \\]\n\nIf the east of plain A is 150 square miles, and the provided details specify this statement without additional complexities, let's consider the total miles of plain A to be 150 square miles (matching the east designation).\n\nNext, we need to find the total number of square miles of both plains A and B combined:\n\\[ \\text{Total number of square miles} = A + B. \\]\n\\[ A = 150, \\quad B = 200. \\]\n\\[ \\text{Total number of square miles} = 150 + 200. \\]\n\\[ \\text{Total number of square miles} = 350. \\]\n\nTherefore, the plains A and B have a combined total of 350 square miles."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Faith's neighborhood, with a total of 20 homes, decided to install solar panels. Each home needed 10 panels capable of providing their power needs. The supplier of the panels brought 50 panels less than the required amount. The neighbors agreed to only install the panels up to where they'd be finished. How many homes had their panels installed?",
+      "answer": "The total number of panels required is 20*10 = <<20*10=200>>200 panels.\nWhen 50 failed to be delivered, the total number available for use became 200-50 = <<200-50=150>>150 panels.\nIf each home requires 10 panels, the number of homes that had panels installed is 150/10 = <<150/10=15>>15 homes\n#### 15"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Faith's neighborhood, with a total of 20 homes, decided to install solar panels. Each home needed 10 panels capable of providing their power needs. The supplier of the panels brought 50 panels less than the required amount. The neighbors agreed to only install the panels up to where they'd be finished. How many homes had their panels installed?",
+        "response": "To solve this problem, let's follow the steps with careful calculations.\n\n1. **Determine the total number of panels needed:**\n   - Each of the 20 homes needs 10 panels.\n   \\[\n   \\text{Total panels required} = 20 \\times 10 = 200 \\text{ panels}\n   \\]\n\n2. **Determine the number of panels the supplier brought:**\n   - Supplier brought 50 panels less than the required amount.\n   \\[\n   \\text{Panels brought} = 200 - 50 = 150 \\text{ panels}\n   \\]\n\n3. **Calculate how many homes received panels:**\n   - Each home needs 10 panels.\n   \\[\n   \\text{Number of homes that can be fully equipped} = \\frac{150}{10} = 15 \\text{ homes}\n   \\]\n\nTherefore, 15 homes had their panels installed."
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "In Mary's class, there are 25 students. Their teacher told them they could pay $50 each to finance a big science project that they and their society would benefit greatly from. They all paid the full amount except for 4 students, who paid half. How much was the class able to gather together?",
+      "answer": "The original amount is $50 so half is $50/2 = $<<50/2=25>>25\n4 students paid half ($25) for a total of 4*$25 = $<<4*25=100>>100\nThere are 25-4 = <<25-4=21>>21 students left\n21 students paid the full amount ($50) for a total of 21*$50 = $<<21*50=1050>>1050\nThey were able to gather a total of $100+$1050 = $<<100+1050=1150>>1150\n#### 1150"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: In Mary's class, there are 25 students. Their teacher told them they could pay $50 each to finance a big science project that they and their society would benefit greatly from. They all paid the full amount except for 4 students, who paid half. How much was the class able to gather together?",
+        "response": "To determine the total amount collected by the class, we need to break the problem down step by step and sum up the contributions from all the students.\n\n1. **Number of students who paid the full amount**:\n   There are 25 students in the class, and 4 of them paid only half. Therefore, the number of students who paid the full amount is:\n\n   \\[\n   25 - 4 = 21\n   \\]\n\n2. **Total amount paid by the students who paid the full amount**:\n   Each of these 21 students paid $50, so the total contribution from these students is:\n\n   \\[\n   21 \\times 50 = 1050\n   \\]\n\n3. **Total amount paid by the 4 students who paid half**:\n   Each of these 4 students paid half of $50, which is:\n\n   \\[\n   \\frac{50}{2} = 25\n   \\]\n\n   Therefore, the total contribution from these 4 students is:\n\n   \\[\n   4 \\times 25 = 100\n   \\]\n\n4. **Total amount collected by the class**:\n   We sum the amounts collected from both groups:\n\n   \\[\n   1050 + 100 = 1150\n   \\]\n\nThus, the total amount the class was able to gather is:\n\n\\[\n\\boxed{1150}\n\\]"
+      }
+    ],
+    "is_correct": true
+  },
+  {
+    "problem": {
+      "question": "Theo and Tia are buying food for their picnic basket.  They invited two of their friends. They buy individual sandwiches and individual fruit salads. They buy two sodas per person and 3 bags of snacks to share for their friends and themselves. Sandwiches are $5 each.  Fruit salad is $3 each.  Sodas are $2 each.  The snack bags are $4 each.  How much did they spend on the entire contents of their picnic basket?",
+      "answer": "The sandwiches are $5 x 4 = $<<5*4=20>>20.\nThe fruit salads are $3 x 4 = $<<3*4=12>>12.\nThe sodas are $2 x 4 x 2 = $<<2*4*2=16>>16.\nThe snacks are $4 x 3 = $<<4*3=12>>12.\nFor all the food, they spend $20 + $12 + $16 + $12 = $<<20+12+16+12=60>>60.\n#### 60"
+    },
+    "traces": [
+      {
+        "prompt": "Please solve the following problem: Theo and Tia are buying food for their picnic basket.  They invited two of their friends. They buy individual sandwiches and individual fruit salads. They buy two sodas per person and 3 bags of snacks to share for their friends and themselves. Sandwiches are $5 each.  Fruit salad is $3 each.  Sodas are $2 each.  The snack bags are $4 each.  How much did they spend on the entire contents of their picnic basket?",
+        "response": "Let's first determine the total number of people going on the picnic. Theo and Tia invited two friends, so there are:\n\\[ 2 + 2 = 4 \\text{ people} \\]\n\nNext, we calculate the total cost for the sandwiches. Each person gets a sandwich, and there are 4 people:\n\\[ 4 \\text{ sandwiches} \\times 5 \\text{ dollars per sandwich} = 20 \\text{ dollars} \\]\n\nNow let\u2019s calculate the cost of the fruit salads. Each person gets a fruit salad, so they need 4 fruit salads:\n\\[ 4 \\text{ fruit salads} \\times 3 \\text{ dollars per fruit salad} = 12 \\text{ dollars} \\]\n\nEach person gets two sodas. So, the total number of sodas is:\n\\[ 4 \\text{ people} \\times 2 \\text{ sodas per person} = 8 \\text{ sodas} \\]\nThe cost of the sodas is:\n\\[ 8 \\text{ sodas} \\times 2 \\text{ dollars per soda} = 16 \\text{ dollars} \\]\n\nThey buy 3 bags of snacks, and the cost per bag is $4. Therefore, the total cost for snacks is:\n\\[ 3 \\text{ snack bags} \\times 4 \\text{ dollars per snack bag} = 12 \\text{ dollars} \\]\n\nWe now sum up all these costs to get the total expenditure:\n\\[\n20 \\text{ dollars (sandwiches)}\n+ 12 \\text{ dollars (fruit salads)}\n+ 16 \\text{ dollars (sodas)}\n+ 12 \\text{ dollars (snack bags)}\n= 60 \\text{ dollars}\n\\]\n\nThus, Theo and Tia spent:\n\\[ 60 \\text{ dollars} \\]\non the entire contents of their picnic basket."
+      }
+    ],
+    "is_correct": true
+  }
+]
