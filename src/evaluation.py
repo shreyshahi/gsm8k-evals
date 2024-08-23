@@ -1,30 +1,32 @@
 import random
 from datasets import load_dataset
-from techniques.base import BaseTechnique, BaseWithBreaksTechnique, StraightToAnswer
-from openai import OpenAI
+from techniques.base import BaseTechnique, StraightToAnswer
+import openai
 import os
 import json
 from tqdm import tqdm
+import time
 
-# Load the GSM8K dataset
-dataset = load_dataset("openai/gsm8k", "main")
-
-# Select 10 random problems from the training set
-train_data = dataset["train"]
-random_indices = random.sample(range(len(train_data)), 10)
-selected_problems = [train_data[i] for i in random_indices]
-
-# Initialize OpenAI client (make sure to set your API key in the environment)
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def get_response(prompt, model):
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
+    max_retries = 5
+    base_delay = 1
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            return response.choices[0].message.content
+        except openai.RateLimitError as e:
+            if attempt == max_retries - 1:
+                raise e
+            delay = base_delay * (2 ** attempt)
+            time.sleep(delay)
+        except Exception as e:
+            raise e
 
-# Evaluation function
 def evaluate_technique(technique, model, problem):
     question = problem["question"]
     correct_answer = problem["answer"].split("###")[-1]
@@ -65,13 +67,29 @@ def compare_answers(extracted_answer, correct_answer):
     return str(extracted_answer).strip() == str(correct_answer).strip()
 
 def main():
+    # Load the GSM8K dataset
+    dataset = load_dataset("openai/gsm8k", "main")
+
+    # Select 500 random problems from the training set
+    train_data = dataset["train"]
+
+    random_indices_file = "selected_problems.json"
+    if os.path.exists(random_indices_file):
+        with open(random_indices_file, "r") as f:
+            selected_indices = json.load(f)
+    else:
+        selected_indices = random.sample(range(len(train_data)), 500)
+        with open(random_indices_file, "w") as f:
+            json.dump(selected_indices, f)
+
+    selected_problems = [train_data[i] for i in selected_indices]
+
     # Evaluate each technique
     results = {}
 
     # Initialize the techniques
     techniques = [
         ("BaseTechnique", BaseTechnique()),
-        ("BaseWithBreaksTechnique", BaseWithBreaksTechnique()),
         ("StraightToAnswer", StraightToAnswer())
     ]
 
@@ -84,28 +102,39 @@ def main():
     for model in models:
         for technique_name, technique in techniques:
             print(f"\nEvaluating {technique_name} with model {model}...")
-            correct_count = 0
-            technique_traces = []
+            technique_filename = f"traces/{technique_name.replace(' ', '_').lower()}_{model.replace('-', '_')}_traces.json"
             
-            for problem in tqdm(selected_problems):
-                is_correct, traces = evaluate_technique(technique, model, problem)
-                if is_correct:
-                    correct_count += 1
-                technique_traces.append({
-                    "problem": problem,
-                    "traces": traces,
-                    "is_correct": is_correct
-                })
+            if os.path.exists(technique_filename):
+                print(f"Traces file already exists for {technique_name} with model {model}. Skipping evaluation.")
+                with open(technique_filename, "r") as f:
+                    technique_traces = json.load(f)
+                correct_count = sum(1 for trace in technique_traces if trace["is_correct"])
+            else:
+                correct_count = 0
+                technique_traces = []
+                
+                for i, problem in enumerate(tqdm(selected_problems, desc=f"{technique_name} - {model}", leave=False)):
+                    is_correct, traces = evaluate_technique(technique, model, problem)
+                    if is_correct:
+                        correct_count += 1
+                    technique_traces.append({
+                        "problem": problem,
+                        "traces": traces,
+                        "is_correct": is_correct
+                    })
+                    accuracy_so_far = correct_count / (i + 1)
+                    tqdm.write(f"Progress: {i+1}/{len(selected_problems)} | Correct: {correct_count} | Accuracy: {accuracy_so_far:.2%}")
+                    time.sleep(1)  # Add a small delay to avoid rate limiting
+                
+                # Save traces for this technique and model
+                with open(technique_filename, "w") as f:
+                    json.dump(technique_traces, f, indent=2)
             
             accuracy = correct_count / len(selected_problems)
             results[f"{technique_name}_{model}"] = {"accuracy": accuracy}
             
             print(f"{technique_name} with model {model} Accuracy: {accuracy:.2f}")
-
-            # Save traces for this technique and model
-            technique_filename = f"traces/{technique_name.replace(' ', '_').lower()}_{model.replace('-', '_')}_traces.json"
-            with open(technique_filename, "w") as f:
-                json.dump(technique_traces, f, indent=2)
+            time.sleep(5)  # Add a longer delay between technique/model combinations
 
     # Save overall results
     with open("traces/evaluation_results.json", "w") as f:
