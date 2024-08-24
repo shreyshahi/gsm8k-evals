@@ -4,6 +4,7 @@ We will benchmark several prompting techniques on mathematical datasets such as 
 
 The ideas are all human generated, and code is mostly AI generated (cursor + claude-3.5-sonnet)
 
+## Lab notebook / observations
 
 ## TODO
 - [ ] Make the evaluation script general enough to handle multiple datasets
