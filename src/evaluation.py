@@ -6,6 +6,7 @@ import os
 import json
 from tqdm import tqdm
 import time
+import argparse
 
 client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -27,9 +28,16 @@ def get_response(prompt, model):
         except Exception as e:
             raise e
 
-def evaluate_technique(technique, model, problem):
-    question = problem["question"]
-    correct_answer = problem["answer"].split("###")[-1]
+def evaluate_technique(technique, model, problem, dataset_name):
+    if dataset_name == "gsm8k":
+        question = problem["question"]
+        correct_answer = problem["answer"].split("###")[-1]
+    elif dataset_name == "math":
+        question = problem["problem"]
+        correct_answer = problem["solution"]
+    else:
+        raise ValueError(f"Unsupported dataset: {dataset_name}")
+
     correct_answer = "".join(c for c in correct_answer.strip() if c.isdigit() or c == ".")
     
     initial_prompt = technique.get_initial_prompt(question)
@@ -46,12 +54,19 @@ def evaluate_technique(technique, model, problem):
         response = get_response(prompt, model)
         traces.append({"prompt": prompt, "response": response})
     
-    # Extract numerical answer using a smaller LLM
     final_answer = extract_numerical_answer(traces[-1]["response"])
-    
     is_correct = compare_answers(final_answer, correct_answer)
     
-    return is_correct, traces
+    result = {
+        "is_correct": is_correct,
+        "traces": traces,
+    }
+    
+    if dataset_name == "math":
+        result["level"] = problem["level"]
+        result["type"] = problem["type"]
+    
+    return result
 
 def extract_numerical_answer(text_answer):
     response = client.chat.completions.create(
@@ -66,14 +81,19 @@ def extract_numerical_answer(text_answer):
 def compare_answers(extracted_answer, correct_answer):
     return str(extracted_answer).strip() == str(correct_answer).strip()
 
-def main():
-    # Load the GSM8K dataset
-    dataset = load_dataset("openai/gsm8k", "main")
+def main(dataset_name):
+    # Load the dataset
+    if dataset_name == "gsm8k":
+        dataset = load_dataset("openai/gsm8k", "main")
+        train_data = dataset["train"]
+    elif dataset_name == "math":
+        dataset = load_dataset("hendrycks/competition_math", trust_remote_code=True)
+        train_data = dataset["train"]
+    else:
+        raise ValueError(f"Unsupported dataset: {dataset_name}")
 
     # Select 500 random problems from the training set
-    train_data = dataset["train"]
-
-    random_indices_file = "selected_problems.json"
+    random_indices_file = f"selected_problems_{dataset_name}.json"
     if os.path.exists(random_indices_file):
         with open(random_indices_file, "r") as f:
             selected_indices = json.load(f)
@@ -97,14 +117,14 @@ def main():
     # Initialize the models
     models = ["gpt-4o", "gpt-4o-mini"]
 
-    # Create traces folder if it doesn't exist
-    os.makedirs("traces", exist_ok=True)
+    # Create traces folder for the dataset if it doesn't exist
+    traces_folder = f"traces/{dataset_name}"
+    os.makedirs(traces_folder, exist_ok=True)
 
     for model in models:
         for technique_name, technique in techniques:
-            print(f"\nEvaluating {technique_name} with model {model}...")
-            technique_filename = f"traces/{technique_name.replace(' ', '_').lower()}_{model.replace('-', '_')}_traces.json"
-            
+            print(f"\nEvaluating {technique_name} with model {model} on {dataset_name}...")
+            technique_filename = f"{traces_folder}/{technique_name.replace(' ', '_').lower()}_{model.replace('-', '_')}_traces.json"
             if os.path.exists(technique_filename):
                 print(f"Traces file already exists for {technique_name} with model {model}. Skipping evaluation.")
                 with open(technique_filename, "r") as f:
@@ -116,14 +136,10 @@ def main():
                 
                 progress_bar = tqdm(selected_problems, desc=f"{technique_name} - {model}", leave=False)
                 for i, problem in enumerate(progress_bar):
-                    is_correct, traces = evaluate_technique(technique, model, problem)
-                    if is_correct:
+                    result = evaluate_technique(technique, model, problem, dataset_name)
+                    if result["is_correct"]:
                         correct_count += 1
-                    technique_traces.append({
-                        "problem": problem,
-                        "traces": traces,
-                        "is_correct": is_correct
-                    })
+                    technique_traces.append(result)
                     accuracy_so_far = correct_count / (i + 1)
                     progress_bar.set_description(f"{technique_name} - {model} | Progress: {i+1}/{len(selected_problems)} | Correct: {correct_count} | Accuracy: {accuracy_so_far:.2%}")
                     time.sleep(1)  # Add a small delay to avoid rate limiting
@@ -131,7 +147,7 @@ def main():
                 # Save traces for this technique and model
                 with open(technique_filename, "w") as f:
                     json.dump(technique_traces, f, indent=2)
-            
+
             accuracy = correct_count / len(selected_problems)
             results[f"{technique_name}_{model}"] = {"accuracy": accuracy}
             
@@ -139,11 +155,17 @@ def main():
             time.sleep(5)  # Add a longer delay between technique/model combinations
 
     # Save overall results
-    with open("traces/evaluation_results.json", "w") as f:
+    with open(f"{traces_folder}/evaluation_results.json", "w") as f:
         json.dump(results, f, indent=2)
 
-    print("\nEvaluation complete. Results saved in 'traces/evaluation_results.json'")
-    print("Individual technique traces saved in the 'traces' folder.")
+    print(f"\nEvaluation complete. Results saved in '{traces_folder}/evaluation_results.json'")
+    print(f"Individual technique traces saved in the '{traces_folder}' folder.")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Evaluate prompting techniques on mathematical datasets.")
+    parser.add_argument("dataset", choices=["gsm8k", "math"], help="Dataset to evaluate (gsm8k or math)")
+    args = parser.parse_args()
+    main(args.dataset)
 
 if __name__ == "__main__":
     main()

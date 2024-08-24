@@ -7,5 +7,3 @@ The ideas are all human generated, and code is mostly AI generated (cursor + cla
 ## Lab notebook / observations
 
 ## TODO
-- [ ] Make the evaluation script general enough to handle multiple datasets
-- [ ] Save traces for different datasets in different folders
